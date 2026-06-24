@@ -26,6 +26,7 @@ enum SettingsDefault {
     static let presets = [5, 10, 25]
     static let alarmVolume = 0.7
     static let autoMuteAfterFiveSeconds = true
+    static let showNotifications = true
     static let menuBarMode = MenuBarMode.expanded
     static let increaseContrast = false
     static let autoStartNextPhase = true
@@ -49,6 +50,7 @@ final class AppSettings: ObservableObject {
         self.presets = (defaults.array(forKey: Key.presets) as? [Int]) ?? SettingsDefault.presets
         self.alarmVolume = defaults.double(forKey: Key.alarmVolume)
         self.autoMuteAfterFiveSeconds = defaults.bool(forKey: Key.autoMute)
+        self.showNotifications = defaults.bool(forKey: Key.showNotifications)
         self.menuBarMode = MenuBarMode(rawValue: defaults.string(forKey: Key.menuBarMode) ?? "")
             ?? SettingsDefault.menuBarMode
         self.increaseContrast = defaults.bool(forKey: Key.increaseContrast)
@@ -63,6 +65,7 @@ final class AppSettings: ObservableObject {
     @Published var presets: [Int] { didSet { persist(presets, Key.presets) } }
     @Published var alarmVolume: Double { didSet { persist(alarmVolume, Key.alarmVolume) } }
     @Published var autoMuteAfterFiveSeconds: Bool { didSet { persist(autoMuteAfterFiveSeconds, Key.autoMute) } }
+    @Published var showNotifications: Bool { didSet { persist(showNotifications, Key.showNotifications) } }
     @Published var menuBarMode: MenuBarMode { didSet { persist(menuBarMode.rawValue, Key.menuBarMode) } }
     @Published var increaseContrast: Bool { didSet { persist(increaseContrast, Key.increaseContrast) } }
     @Published var autoStartNextPhase: Bool { didSet { persist(autoStartNextPhase, Key.autoStart) } }
@@ -96,6 +99,7 @@ final class AppSettings: ObservableObject {
             Key.presets: SettingsDefault.presets,
             Key.alarmVolume: SettingsDefault.alarmVolume,
             Key.autoMute: SettingsDefault.autoMuteAfterFiveSeconds,
+            Key.showNotifications: SettingsDefault.showNotifications,
             Key.menuBarMode: SettingsDefault.menuBarMode.rawValue,
             Key.increaseContrast: SettingsDefault.increaseContrast,
             Key.autoStart: SettingsDefault.autoStartNextPhase,
@@ -110,6 +114,7 @@ final class AppSettings: ObservableObject {
         static let presets = "presets"
         static let alarmVolume = "alarmVolume"
         static let autoMute = "autoMuteAfterFiveSeconds"
+        static let showNotifications = "showNotifications"
         static let menuBarMode = "menuBarMode"
         static let increaseContrast = "increaseContrast"
         static let autoStart = "autoStartNextPhase"

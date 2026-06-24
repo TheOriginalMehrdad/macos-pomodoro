@@ -18,7 +18,7 @@ final class AlarmPlayer {
     private static let resourceName = "alarm"
     private static let resourceExtension = "wav"
     private static let autoMuteDelay: TimeInterval = 5
-    private static let loopForever = -1
+    private static let playOnce = 0
 
     /// Start the alarm. `volume` is 0...1.
     func play(volume: Double, autoMute: Bool) {
@@ -27,7 +27,7 @@ final class AlarmPlayer {
             NSSound.beep()
             return
         }
-        player.numberOfLoops = AlarmPlayer.loopForever
+        player.numberOfLoops = AlarmPlayer.playOnce
         player.volume = Float(min(max(volume, 0), 1))
         player.prepareToPlay()
         self.player = player

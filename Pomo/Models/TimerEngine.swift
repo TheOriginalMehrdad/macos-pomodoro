@@ -164,7 +164,9 @@ final class TimerEngine: ObservableObject {
                    autoMute: settings.autoMuteAfterFiveSeconds)
         let finished = phase
         transition(countCompletedFocus: true)
-        Notifier.shared.notifyPhaseChange(finished: finished, next: phase)
+        if settings.showNotifications {
+            Notifier.shared.notifyPhaseChange(finished: finished, next: phase)
+        }
         remaining = currentPhaseDuration
         if settings.autoStartNextPhase { beginCountdown() }
     }

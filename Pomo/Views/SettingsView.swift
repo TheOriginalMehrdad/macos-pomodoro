@@ -65,6 +65,8 @@ struct SettingsView: View {
             }
             Toggle("automatically mute after 5 seconds",
                    isOn: $settings.autoMuteAfterFiveSeconds)
+            Toggle("show notification when a period is done",
+                   isOn: $settings.showNotifications)
             HStack {
                 Button("Test alarm") { engine.testAlarm() }
                 Button("Stop") { engine.stopAlarm() }

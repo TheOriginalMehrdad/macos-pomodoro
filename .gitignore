@@ -18,3 +18,25 @@ DerivedData/
 
 # Distribution artifacts
 *.dmg
+
+# Backups & temp files
+*.bak
+*.tmp
+*.orig
+*~
+
+# Secrets & credentials (never commit)
+.env
+.env.*
+*.env
+secrets.*
+*.secret
+*.pem
+*.key
+*.p12
+*.cer
+*.certSigningRequest
+*.mobileprovision
+*.provisionprofile
+GoogleService-Info.plist
+*.xcconfig.local
