@@ -5,6 +5,9 @@ entirely in the menu bar (no Dock icon): click the live countdown to open a
 popover with a scrubber, quick presets, and start/pause — and it auto-cycles
 through focus and break phases.
 
+> **Looking for Linux?** A Linux version of this project is available at
+> [TheOriginalMehrdad/linux-pomodoro](https://github.com/TheOriginalMehrdad/linux-pomodoro).
+
 ## Features
 
 - **Classic Pomodoro cycle** — focus → short break → focus, with a long break
