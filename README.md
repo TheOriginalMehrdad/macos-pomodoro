@@ -8,6 +8,8 @@ through focus and break phases.
 > **Looking for Linux?** A Linux version of this project is available at
 > [TheOriginalMehrdad/linux-pomodoro](https://github.com/TheOriginalMehrdad/linux-pomodoro).
 
+![Pomo running in the macOS menu bar](docs/demo.gif)
+
 ## Features
 
 - **Classic Pomodoro cycle** — focus → short break → focus, with a long break
