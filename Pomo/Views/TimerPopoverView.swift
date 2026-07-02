@@ -79,6 +79,8 @@ struct TimerPopoverView: View {
             Button("Reset", action: engine.reset)
             Button("Skip", action: engine.skip)
             Divider()
+            Toggle("Floating Timer", isOn: $settings.showFloatingTimer)
+            Divider()
             SettingsLink { Text("Settings…") }
             Divider()
             Button("Quit Pomo") { NSApplication.shared.terminate(nil) }

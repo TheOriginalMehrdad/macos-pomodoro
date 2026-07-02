@@ -23,6 +23,8 @@ struct SettingsView: View {
             Divider()
             menuBarSection
             Divider()
+            floatingTimerSection
+            Divider()
             launchSection
         }
         .padding(20)
@@ -88,6 +90,10 @@ struct SettingsView: View {
             }
             Toggle("increase contrast", isOn: $settings.increaseContrast)
         }
+    }
+
+    private var floatingTimerSection: some View {
+        Toggle("show floating timer", isOn: $settings.showFloatingTimer)
     }
 
     private var launchSection: some View {

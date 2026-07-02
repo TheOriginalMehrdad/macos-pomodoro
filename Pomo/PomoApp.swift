@@ -11,11 +11,16 @@ import SwiftUI
 struct PomoApp: App {
     @StateObject private var settings: AppSettings
     @StateObject private var engine: TimerEngine
+    @StateObject private var pillController: FloatingPillController
 
     init() {
         let settings = AppSettings()
+        let engine = TimerEngine(settings: settings)
         _settings = StateObject(wrappedValue: settings)
-        _engine = StateObject(wrappedValue: TimerEngine(settings: settings))
+        _engine = StateObject(wrappedValue: engine)
+        _pillController = StateObject(
+            wrappedValue: FloatingPillController(settings: settings, engine: engine)
+        )
         Notifier.shared.requestAuthorization()
     }
 

@@ -30,6 +30,7 @@ enum SettingsDefault {
     static let menuBarMode = MenuBarMode.expanded
     static let increaseContrast = false
     static let autoStartNextPhase = true
+    static let showFloatingTimer = false
 
     static let minMinutes = 1
     static let maxMinutes = 90
@@ -55,6 +56,7 @@ final class AppSettings: ObservableObject {
             ?? SettingsDefault.menuBarMode
         self.increaseContrast = defaults.bool(forKey: Key.increaseContrast)
         self.autoStartNextPhase = defaults.bool(forKey: Key.autoStart)
+        self.showFloatingTimer = defaults.bool(forKey: Key.showFloatingTimer)
         self.launchAtLogin = LaunchAtLogin.isEnabled
     }
 
@@ -69,6 +71,7 @@ final class AppSettings: ObservableObject {
     @Published var menuBarMode: MenuBarMode { didSet { persist(menuBarMode.rawValue, Key.menuBarMode) } }
     @Published var increaseContrast: Bool { didSet { persist(increaseContrast, Key.increaseContrast) } }
     @Published var autoStartNextPhase: Bool { didSet { persist(autoStartNextPhase, Key.autoStart) } }
+    @Published var showFloatingTimer: Bool { didSet { persist(showFloatingTimer, Key.showFloatingTimer) } }
 
     /// Reflects the real login-item registration; writing it (un)registers the app.
     @Published var launchAtLogin: Bool {
@@ -103,6 +106,7 @@ final class AppSettings: ObservableObject {
             Key.menuBarMode: SettingsDefault.menuBarMode.rawValue,
             Key.increaseContrast: SettingsDefault.increaseContrast,
             Key.autoStart: SettingsDefault.autoStartNextPhase,
+            Key.showFloatingTimer: SettingsDefault.showFloatingTimer,
         ]
     }
 
@@ -118,5 +122,6 @@ final class AppSettings: ObservableObject {
         static let menuBarMode = "menuBarMode"
         static let increaseContrast = "increaseContrast"
         static let autoStart = "autoStartNextPhase"
+        static let showFloatingTimer = "showFloatingTimer"
     }
 }

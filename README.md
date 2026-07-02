@@ -15,6 +15,11 @@ through focus and break phases.
 - **Classic Pomodoro cycle** — focus → short break → focus, with a long break
   every _N_ sessions. Phases auto-chain (optional) and ring an alarm at zero.
 - **Menu bar pill** — live `MM:SS` countdown, or a compact icon-only mode.
+- **Floating timer** (optional) — a frameless, always-on-top capsule widget that
+  floats over every Space and fullscreen app, tinted per phase, with play/pause,
+  reset, session dots, and an overflow menu. Drag it anywhere; its position is
+  remembered. Toggle it in Settings or from the popover's `⋯` menu. Clicking it
+  never steals focus from the app you're working in.
 - **Scrubber + presets** — drag the tick ruler or tap a preset chip to set the
   focus length.
 - **Configurable** (⌘,) — focus / short-break / long-break lengths, sessions per
@@ -46,8 +51,9 @@ Pomo/
   PomoApp.swift          # App entry: MenuBarExtra + Settings scenes
   Models/                # AppSettings (UserDefaults), TimerEngine (cycle logic)
   Views/                 # MenuBarLabel, TimerPopoverView, ScrubberView,
-                         #   PresetChipsView, SettingsView
-  Services/              # AlarmPlayer, LaunchAtLogin, Notifier
+                         #   PresetChipsView, SettingsView, FloatingPillView
+  Services/              # AlarmPlayer, LaunchAtLogin, Notifier,
+                         #   FloatingPillPanel + FloatingPillController
   alarm.wav              # original generated alarm tone
   Assets.xcassets/       # app icon
 ```
